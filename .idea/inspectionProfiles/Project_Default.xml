@@ -3,5 +3,42 @@
     <option name="myName" value="Project Default" />
     <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PyArgumentListInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyStringConversionWithoutDunderMethodInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredTypes">
+        <list>
+          <option value="types.NoneType" />
+          <option value="_io.TextIOWrapper" />
+          <option value="str" />
+          <option value="int" />
+          <option value="float" />
+          <option value="complex" />
+          <option value="set" />
+          <option value="frozenset" />
+          <option value="bytes" />
+          <option value="bytearray" />
+          <option value="memoryview" />
+          <option value="slice" />
+          <option value="list" />
+          <option value="dict" />
+          <option value="bool" />
+          <option value="range" />
+          <option value="tuple" />
+          <option value="pathlib.PurePath" />
+          <option value="uuid.UUID" />
+          <option value="decimal.Decimal" />
+          <option value="fractions.Fraction" />
+          <option value="pandas.core.series.Series" />
+          <option value="pandas._libs.tslibs.timedeltas.Timedelta" />
+          <option value="pandas._libs.tslibs.timestamps.Timestamp" />
+          <option value="numpy.complexfloating" />
+          <option value="datetime.date" />
+          <option value="numpy.datetime64" />
+          <option value="numpy.floating" />
+          <option value="numpy.integer" />
+          <option value="datetime.timedelta" />
+          <option value="numpy.timedelta64" />
+        </list>
+      </option>
+    </inspection_tool>
   </profile>
 </component>

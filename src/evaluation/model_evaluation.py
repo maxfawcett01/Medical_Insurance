@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from sklearn.metrics import r2_score
 
 
 def create_prediction_frame(
@@ -41,6 +41,48 @@ def create_prediction_frame(
     return output
 
 
+def _pearson_correlation(
+        y_true: np.ndarray,
+        y_pred: np.ndarray,
+) -> float:
+    if len(y_true) < 2:
+        return np.nan
+
+    if np.std(y_true) == 0 or np.std(y_pred) == 0:
+        return np.nan
+
+    return float(np.corrcoef(y_true, y_pred)[0, 1])
+
+
+def _standard_deviation_error_prediction(
+        errors: np.ndarray,
+) -> float:
+    if len(errors) < 2:
+        return np.nan
+
+    return float(np.std(errors, ddof=1))
+
+
+def _base_regression_metrics(
+        y_true: np.ndarray,
+        y_pred: np.ndarray,
+        scale_name: str,
+) -> dict[str, float]:
+    errors = y_true - y_pred
+
+    mae = np.mean(np.abs(errors))
+    rmse = np.sqrt(np.mean(errors ** 2))
+
+    return {
+        f"rmse_{scale_name}": float(rmse),
+        f"r2_{scale_name}": float(r2_score(y_true, y_pred)),
+        f"pearson_correlation_{scale_name}": _pearson_correlation(y_true, y_pred),
+        f"sdep_{scale_name}": _standard_deviation_error_prediction(errors),
+        f"bias_{scale_name}": float(np.mean(errors)),
+        f"mae_{scale_name}": float(mae),
+    }
+
+
 def regression_metrics(
         y_true: pd.Series | np.ndarray,
         y_pred: pd.Series | np.ndarray,
@@ -54,43 +96,40 @@ def regression_metrics(
     y_true_array = np.asarray(y_true)
     y_pred_array = np.asarray(y_pred)
 
-    metrics = {
-        f"mae_{original_scale_name}": mean_absolute_error(y_true_array, y_pred_array),
-        f"rmse_{original_scale_name}": np.sqrt(mean_squared_error(y_true_array, y_pred_array)),
-        f"r2_{original_scale_name}": r2_score(y_true_array, y_pred_array),
-        f"mean_actual_{original_scale_name}": np.mean(y_true_array),
-        f"mean_predicted_{original_scale_name}": np.mean(y_pred_array),
-        f"median_actual_{original_scale_name}": np.median(y_true_array),
-        f"median_predicted_{original_scale_name}": np.median(y_pred_array),
-    }
+    metrics = _base_regression_metrics(
+        y_true=y_true_array,
+        y_pred=y_pred_array,
+        scale_name=original_scale_name,
+    )
+
+    metrics.update({
+        f"mean_actual_{original_scale_name}": float(np.mean(y_true_array)),
+        f"mean_predicted_{original_scale_name}": float(np.mean(y_pred_array)),
+        f"median_actual_{original_scale_name}": float(np.median(y_true_array)),
+        f"median_predicted_{original_scale_name}": float(np.median(y_pred_array)),
+    })
 
     if include_tail_metrics:
         for q in tail_quantiles:
             q_label = int(round(q * 100))
-            metrics[f"actual_p{q_label}_{original_scale_name}"] = np.quantile(y_true_array, q)
-            metrics[f"predicted_p{q_label}_{original_scale_name}"] = np.quantile(y_pred_array, q)
-            metrics[f"p{q_label}_underprediction_{original_scale_name}"] = (
-                    np.quantile(y_true_array, q) - np.quantile(y_pred_array, q)
-            )
+            actual_q = float(np.quantile(y_true_array, q))
+            predicted_q = float(np.quantile(y_pred_array, q))
+
+            metrics[f"actual_p{q_label}_{original_scale_name}"] = actual_q
+            metrics[f"predicted_p{q_label}_{original_scale_name}"] = predicted_q
+            metrics[f"p{q_label}_underprediction_{original_scale_name}"] = actual_q - predicted_q
 
     if y_true_transformed is not None and y_pred_transformed is not None:
         y_true_transformed_array = np.asarray(y_true_transformed)
         y_pred_transformed_array = np.asarray(y_pred_transformed)
 
-        metrics.update({
-            f"mae_{transformed_scale_name}": mean_absolute_error(
-                y_true_transformed_array,
-                y_pred_transformed_array,
-            ),
-            f"rmse_{transformed_scale_name}": np.sqrt(mean_squared_error(
-                y_true_transformed_array,
-                y_pred_transformed_array,
-            )),
-            f"r2_{transformed_scale_name}": r2_score(
-                y_true_transformed_array,
-                y_pred_transformed_array,
-            ),
-        })
+        transformed_metrics = _base_regression_metrics(
+            y_true=y_true_transformed_array,
+            y_pred=y_pred_transformed_array,
+            scale_name=transformed_scale_name,
+        )
+
+        metrics.update(transformed_metrics)
 
     return (
         pd.DataFrame.from_dict(metrics, orient="index", columns=["value"])
@@ -242,8 +281,11 @@ def plot_actual_vs_predicted(
         ax=ax,
     )
 
-    min_val = min(plot_data[actual_col].min(), plot_data[predicted_col].min())
-    max_val = max(plot_data[actual_col].max(), plot_data[predicted_col].max())
+    actual_values = pd.to_numeric(plot_data[actual_col], errors="coerce")
+    predicted_values = pd.to_numeric(plot_data[predicted_col], errors="coerce")
+
+    min_val = float(np.nanmin([actual_values.min(), predicted_values.min()]))
+    max_val = float(np.nanmax([actual_values.max(), predicted_values.max()]))
 
     ax.plot([min_val, max_val], [min_val, max_val], linestyle="--")
 
