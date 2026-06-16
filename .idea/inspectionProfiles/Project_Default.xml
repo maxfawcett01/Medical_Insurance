@@ -37,6 +37,14 @@
           <option value="numpy.integer" />
           <option value="datetime.timedelta" />
           <option value="numpy.timedelta64" />
+          <option value="_collections_abc.Buffer" />
+          <option value="object" />
+        </list>
+      </option>
+      <option name="reportedTypes">
+        <list>
+          <option value="types.FunctionType" />
+          <option value="type" />
         </list>
       </option>
     </inspection_tool>
