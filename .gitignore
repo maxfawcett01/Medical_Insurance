@@ -1,0 +1,5 @@
+
+# Generated model files
+*.joblib
+*.pkl
+*.pickle
