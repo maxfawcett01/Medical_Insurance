@@ -1,0 +1,13 @@
+\begin{table}
+\caption{Final Quantile Gradient Boosting calibration diagnostics.}
+\label{tab:09-final-quantile-model-diagnostics}
+\begin{tabular}{llrrrrrrrrr}
+\toprule
+Model & Tail level & Target quantile & Observed coverage & Coverage error & Absolute coverage error & Pinball loss & Mean predicted quantile (USD) & Median predicted quantile (USD) & Minimum predicted quantile (USD) & Maximum predicted quantile (USD) \\
+\midrule
+gb_quantile_p90 & p90 & 0.9000 & 0.8960 & -0.0040 & 0.0040 & 598.8689 & 5879.7270 & 5392.8779 & 2009.2552 & 21353.9453 \\
+gb_quantile_p95 & p95 & 0.9500 & 0.9467 & -0.0033 & 0.0033 & 409.0378 & 7725.6606 & 7156.4004 & 2900.7908 & 31437.3886 \\
+gb_quantile_p99 & p99 & 0.9900 & 0.9892 & -0.0008 & 0.0008 & 142.2076 & 12763.0922 & 12008.0736 & 5991.4997 & 38178.2977 \\
+\bottomrule
+\end{tabular}
+\end{table}

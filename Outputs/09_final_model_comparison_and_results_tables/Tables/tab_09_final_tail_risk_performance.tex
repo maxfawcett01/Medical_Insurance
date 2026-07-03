@@ -1,0 +1,15 @@
+\begin{table}
+\caption{Final tail-risk performance comparison for fitted mean-cost models.}
+\label{tab:09-final-tail-risk-performance}
+\begin{tabular}{llrrrrrrrrrrrrrrrrrrrrr}
+\toprule
+Model & Model family & Tail weighted & Top 10% MAE & Top 5% MAE & Top 1% MAE & p90 under-prediction (USD) & p95 under-prediction (USD) & p99 under-prediction (USD) & p95 TVaR under-prediction (USD) & p99 TVaR under-prediction (USD) & p95 tail concentration error & p99 tail concentration error & Absolute p90 under-prediction & Absolute p95 under-prediction & Absolute p99 under-prediction & Absolute p95 TVaR under-prediction & Absolute p99 TVaR under-prediction & Absolute p95 tail concentration error & Absolute p99 tail concentration error & p95 under-prediction rank & p99 under-prediction rank & p99 TVaR rank \\
+\midrule
+gb_tail_weighted & gradient_boosting & True & 5453.1829 & 7576.1149 & 14745.7051 & 360.5102 & 1179.4472 & 5453.7029 & 4063.2466 & 10124.8964 & 0.0724 & 0.0348 & 360.5102 & 1179.4472 & 5453.7029 & 4063.2466 & 10124.8964 & 0.0724 & 0.0348 & 1.0000 & 2.0000 & 2.0000 \\
+ridge_tail_weighted & ridge & True & 5628.4030 & 7659.4251 & 13955.5319 & 689.0763 & 1412.3991 & 2748.7397 & 2538.1826 & 4808.2099 & 0.0501 & 0.0184 & 689.0763 & 1412.3991 & 2748.7397 & 2538.1826 & 4808.2099 & 0.0501 & 0.0184 & 2.0000 & 1.0000 & 1.0000 \\
+ridge_baseline_grouped & ridge & False & 6919.0990 & 9432.3320 & 17030.9310 & 2777.0308 & 4411.2140 & 8872.1441 & 7504.3515 & 13576.5794 & 0.0939 & 0.0365 & 2777.0308 & 4411.2140 & 8872.1441 & 7504.3515 & 13576.5794 & 0.0939 & 0.0365 & 3.0000 & 3.0000 & 3.0000 \\
+gb_baseline_grouped & gradient_boosting & False & 7013.8038 & 9603.5049 & 17383.5550 & 2717.6509 & 4475.3400 & 9947.2362 & 8123.9776 & 15369.9653 & 0.1070 & 0.0442 & 2717.6509 & 4475.3400 & 9947.2362 & 8123.9776 & 15369.9653 & 0.1070 & 0.0442 & 4.0000 & 5.0000 & 5.0000 \\
+gb_regularised_grouped & gradient_boosting & False & 7007.8571 & 9593.8624 & 17352.0542 & 2713.2922 & 4530.4687 & 9914.5834 & 8135.6971 & 15229.1307 & 0.1072 & 0.0436 & 2713.2922 & 4530.4687 & 9914.5834 & 8135.6971 & 15229.1307 & 0.1072 & 0.0436 & 5.0000 & 4.0000 & 4.0000 \\
+\bottomrule
+\end{tabular}
+\end{table}

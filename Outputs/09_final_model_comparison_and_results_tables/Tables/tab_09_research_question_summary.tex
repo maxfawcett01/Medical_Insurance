@@ -1,0 +1,15 @@
+\begin{table}
+\caption{Summary of evidence by research question.}
+\label{tab:09-research-question-summary}
+\begin{tabular}{llllrl}
+\toprule
+Research question & Focus & Main evidence & Key metric & Key value & Interpretation \\
+\midrule
+RQ1 & Portfolio response to stress scenarios & All hospitalisation, chronic disease and combined stress scenarios were compared with the baseline predicted portfolio. & Severe combined total cost change & 0.2219 & The severe combined stress scenario produced the largest portfolio response, increasing predicted total cost from 314,417,610.23 to 384,192,855.64. \\
+RQ1 & Stress impact on upper-tail severity & Stress scenarios were evaluated using p90, p95, p99, tail concentration and TVaR. & Severe combined p99 and p99 TVaR changes & 1930.4270 & The severe combined scenario shifted the upper tail upwards, with p99 and p99 TVaR both increasing. The p99 change was 1,723.94 and the p99 TVaR change was 1,930.43. \\
+RQ2 & Average-cost model performance & Ridge and Gradient Boosting mean-cost models were compared using RMSE, MAE, bias, SDEP and correlation. & Best RMSE & 2937.3652 & gb_tail_weighted had the lowest RMSE among the fitted mean-cost models. \\
+RQ2 & Tail-risk estimation & Mean-cost models were compared using upper-tail MAE, p90/p95/p99 underprediction, TVaR and tail concentration. & Best p99 threshold underprediction & 2748.7397 & ridge_tail_weighted gave the closest p99 threshold estimate among the mean-cost models. \\
+RQ2 & Quantile model calibration & Quantile Gradient Boosting models were assessed using pinball loss, empirical coverage and quantile crossing. & Quantile crossing count & 1.0000 & The separately fitted p90, p95 and p99 quantile models showed very limited crossing, with 1 crossing observations. \\
+\bottomrule
+\end{tabular}
+\end{table}

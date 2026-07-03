@@ -1,0 +1,15 @@
+\begin{table}
+\caption{Final average predictive performance comparison for fitted mean-cost models.}
+\label{tab:09-final-average-model-performance}
+\begin{tabular}{llrrrrrrrrrrrrr}
+\toprule
+Model & Model family & Tail weighted & RMSE & MAE & R2 & Bias & SDEP & Pearson correlation & Mean actual cost (USD) & Mean predicted cost (USD) & RMSE rank & MAE rank & Absolute bias & Absolute bias rank \\
+\midrule
+gb_tail_weighted & gradient_boosting & True & 2937.3652 & 1861.5766 & 0.1232 & -113.7816 & 2935.2340 & 0.4156 & 3027.7912 & 3141.5728 & 1.0000 & 4.0000 & 113.7816 & 1.0000 \\
+ridge_baseline_grouped & ridge & False & 2956.1487 & 1663.4470 & 0.1119 & 754.0958 & 2858.4197 & 0.4195 & 3027.7912 & 2273.6953 & 2.0000 & 3.0000 & 754.0958 & 3.0000 \\
+gb_regularised_grouped & gradient_boosting & False & 2968.2352 & 1658.5439 & 0.1046 & 765.8570 & 2867.8031 & 0.4213 & 3027.7912 & 2261.9342 & 3.0000 & 1.0000 & 765.8570 & 4.0000 \\
+gb_baseline_grouped & gradient_boosting & False & 2970.5019 & 1659.4716 & 0.1033 & 765.9035 & 2870.1368 & 0.4193 & 3027.7912 & 2261.8877 & 4.0000 & 2.0000 & 765.9035 & 5.0000 \\
+ridge_tail_weighted & ridge & True & 3042.4785 & 1885.3089 & 0.0593 & -150.4843 & 3038.8306 & 0.4095 & 3027.7912 & 3178.2754 & 5.0000 & 5.0000 & 150.4843 & 2.0000 \\
+\bottomrule
+\end{tabular}
+\end{table}

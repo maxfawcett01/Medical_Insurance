@@ -1,0 +1,17 @@
+\begin{table}
+\caption{Predictive performance of Ridge Regression experiment specifications.}
+\label{tab:04-ridge-experiment-comparison}
+\begin{tabular}{lrrrrrrrrrrrrr}
+\toprule
+Experiment & Selected alpha & RMSE & R2 & Pearson correlation & SDEP & Bias & MAE & Actual p95 (USD) & Predicted p95 (USD) & p95 under-prediction (USD) & Actual p99 (USD) & Predicted p99 (USD) & p99 under-prediction (USD) \\
+\midrule
+baseline_grouped & 0.1778 & 2956.1500 & 0.1119 & 0.4195 & 2858.3500 & 754.1000 & 1663.4500 & 8695.5700 & 4284.3600 & 4411.2100 & 15189.6100 & 6317.4700 & 8872.1400 \\
+wider_alpha_grid & 0.1468 & 2956.1600 & 0.1119 & 0.4194 & 2858.3600 & 754.1000 & 1663.4500 & 8695.5700 & 4284.3700 & 4411.2000 & 15189.6100 & 6317.5000 & 8872.1100 \\
+raw_health_features & 316.2278 & 2952.3900 & 0.1142 & 0.4172 & 2856.0000 & 748.2600 & 1664.3200 & 8695.5700 & 4299.9200 & 4395.6500 & 15189.6100 & 6452.7600 & 8736.8600 \\
+grouped_without_days_hospitalized & 0.3162 & 2966.3300 & 0.1058 & 0.4137 & 2867.5500 & 759.1300 & 1667.6900 & 8695.5700 & 4229.0600 & 4466.5100 & 15189.6100 & 6084.2300 & 9105.3800 \\
+grouped_with_interaction & 0.1778 & 2961.0600 & 0.1090 & 0.4188 & 2862.7100 & 756.8300 & 1661.2200 & 8695.5700 & 4256.4200 & 4439.1500 & 15189.6100 & 5754.8600 & 9434.7600 \\
+smearing_correction & 0.1778 & 2849.4400 & 0.1749 & 0.4195 & 2849.4300 & 9.7800 & 1775.1600 & 8695.5700 & 5686.5900 & 3008.9800 & 15189.6100 & 8384.9700 & 6804.6500 \\
+weighted_ridge & 0.0178 & 3042.4800 & 0.0593 & 0.4095 & 3038.7500 & -150.4800 & 1885.3100 & 8695.5700 & 7283.1700 & 1412.4000 & 15189.6100 & 12440.8700 & 2748.7400 \\
+\bottomrule
+\end{tabular}
+\end{table}

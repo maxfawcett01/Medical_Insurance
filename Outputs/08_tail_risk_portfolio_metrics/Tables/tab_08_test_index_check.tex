@@ -1,0 +1,18 @@
+\begin{table}
+\caption{Test-index consistency check across tail-risk models.}
+\label{tab:08-test-index-check}
+\begin{tabular}{lrr}
+\toprule
+model_name & same_test_index_as_reference & n_test_observations \\
+\midrule
+ridge_baseline_grouped & True & 20000 \\
+ridge_tail_weighted & True & 20000 \\
+gb_baseline_grouped & True & 20000 \\
+gb_regularised_grouped & True & 20000 \\
+gb_tail_weighted & True & 20000 \\
+gb_quantile_p90 & True & 20000 \\
+gb_quantile_p95 & True & 20000 \\
+gb_quantile_p99 & True & 20000 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,17 @@
+\begin{table}
+\caption{Change in Ridge Regression experiment performance relative to the baseline grouped specification.}
+\label{tab:04-ridge-experiment-delta-from-baseline}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Experiment & Delta RMSE & Delta R2 & Delta Pearson correlation & Delta SDEP & Delta bias & Delta MAE & Delta p95 under-prediction & Delta p99 under-prediction \\
+\midrule
+baseline_grouped & 0.0000 & 0.0000 & 0.0000 & 0.0000 & 0.0000 & 0.0000 & 0.0000 & 0.0000 \\
+wider_alpha_grid & 0.0139 & -0.0000 & -0.0000 & 0.0137 & 0.0024 & 0.0007 & -0.0166 & -0.0294 \\
+raw_health_features & -3.7586 & 0.0023 & -0.0023 & -2.3509 & -5.8402 & 0.8685 & -15.5689 & -135.2859 \\
+grouped_without_days_hospitalized & 10.1847 & -0.0061 & -0.0058 & 9.2036 & 5.0357 & 4.2439 & 55.2983 & 233.2374 \\
+grouped_with_interaction & 4.9118 & -0.0030 & -0.0007 & 4.3570 & 2.7384 & -2.2231 & 27.9393 & 562.6123 \\
+smearing_correction & -106.7039 & 0.0630 & 0.0000 & -8.9202 & -744.3136 & 111.7150 & -1402.2313 & -2067.4961 \\
+weighted_ridge & 86.3298 & -0.0526 & -0.0100 & 180.4065 & -904.5801 & 221.8619 & -2998.8149 & -6123.4043 \\
+\bottomrule
+\end{tabular}
+\end{table}

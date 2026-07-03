@@ -1,0 +1,21 @@
+\begin{table}
+\caption{Change in Gradient Boosting experiment performance relative to the baseline grouped specification.}
+\label{tab:06-gb-delta-from-baseline}
+\begin{tabular}{lrrrrrrrrrrr}
+\toprule
+Experiment & Delta RMSE & Delta R2 & Delta Pearson correlation & Delta SDEP & Delta bias & Delta MAE & Delta top 10% MAE & Delta top 5% MAE & Delta top 1% MAE & Delta p95 under-prediction & Delta p99 under-prediction \\
+\midrule
+baseline_grouped & 0.0000 & 0.0000 & 0.0000 & 0.0000 & 0.0000 & 0.0000 & 0.0000 & 0.0000 & 0.0000 & 0.0000 & 0.0000 \\
+regularised_grouped & -2.2667 & 0.0014 & 0.0020 & -2.3337 & -0.0465 & -0.9277 & -5.9467 & -9.6426 & -31.5007 & 55.1287 & -32.6528 \\
+raw_health_features & -5.1201 & 0.0031 & 0.0015 & -4.2170 & -4.0607 & -1.1981 & -28.1550 & -40.6347 & -78.3505 & -28.3066 & -142.6155 \\
+grouped_without_days_hospitalized & 3.5900 & -0.0022 & -0.0023 & 3.2980 & 1.5650 & 1.3461 & 14.4103 & 14.8992 & 24.6131 & 86.7273 & 27.6128 \\
+grouped_with_interaction & 0.0049 & -0.0000 & -0.0002 & 0.1236 & -0.4444 & -0.1963 & -0.5240 & 0.2119 & 8.2269 & 12.4455 & -2.9972 \\
+absolute_error_robust & 4.4974 & -0.0027 & -0.0018 & 3.7434 & 3.4117 & 0.8842 & 20.4764 & 27.1132 & 34.5337 & 42.6446 & 5.4112 \\
+huber_robust & 0.1985 & -0.0001 & -0.0001 & 0.4162 & -0.7901 & 0.1667 & 2.4531 & 3.3908 & 0.1352 & 28.7446 & -23.0211 \\
+tail_weighted_squared_error & -33.1368 & 0.0199 & -0.0037 & 65.0955 & -879.6851 & 202.1050 & -1560.6209 & -2027.3900 & -2637.8499 & -3295.8927 & -4493.5334 \\
+quantile_p90 & 1221.2588 & -0.8889 & -0.0011 & 201.9571 & -3617.8393 & 1819.8149 & -3388.7199 & -4544.8999 & -6039.5958 & -6722.0071 & -8372.1206 \\
+quantile_p95 & 2856.4614 & -2.5538 & 0.0007 & 577.1838 & -5463.7730 & 3386.6866 & -3108.8980 & -5124.0181 & -8699.2522 & -10305.6483 & -12525.4343 \\
+quantile_p99 & 7790.1917 & -10.8706 & -0.0058 & 1714.3041 & -10501.2046 & 8165.5387 & 911.0929 & -2425.8975 & -11241.8178 & -18682.1608 & -22051.9227 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,21 @@
+\begin{table}
+\caption{Summary comparison of Gradient Boosting experiment specifications.}
+\label{tab:06-gb-main-results}
+\begin{tabular}{llrrrrrrrrrrr}
+\toprule
+Experiment & Loss & Quantile alpha & Tail weighted & RMSE & MAE & R2 & Bias & Top 5% MAE & p95 under-prediction (USD) & p99 under-prediction (USD) & Observed coverage & Pinball loss \\
+\midrule
+baseline_grouped & squared_error & NaN & False & 2970.5000 & 1659.4700 & 0.1033 & 765.9000 & 9603.5000 & 4475.3400 & 9947.2400 & NaN & NaN \\
+regularised_grouped & squared_error & NaN & False & 2968.2400 & 1658.5400 & 0.1046 & 765.8600 & 9593.8600 & 4530.4700 & 9914.5800 & NaN & NaN \\
+raw_health_features & squared_error & NaN & False & 2965.3800 & 1658.2700 & 0.1064 & 761.8400 & 9562.8700 & 4447.0300 & 9804.6200 & NaN & NaN \\
+grouped_without_days_hospitalized & squared_error & NaN & False & 2974.0900 & 1660.8200 & 0.1011 & 767.4700 & 9618.4000 & 4562.0700 & 9974.8500 & NaN & NaN \\
+grouped_with_interaction & squared_error & NaN & False & 2970.5100 & 1659.2800 & 0.1033 & 765.4600 & 9603.7200 & 4487.7900 & 9944.2400 & NaN & NaN \\
+absolute_error_robust & absolute_error & NaN & False & 2975.0000 & 1660.3600 & 0.1006 & 769.3200 & 9630.6200 & 4517.9800 & 9952.6500 & NaN & NaN \\
+huber_robust & huber & 0.9000 & False & 2970.7000 & 1659.6400 & 0.1032 & 765.1100 & 9606.9000 & 4504.0800 & 9924.2200 & NaN & NaN \\
+tail_weighted_squared_error & squared_error & NaN & True & 2937.3700 & 1861.5800 & 0.1232 & -113.7800 & 7576.1100 & 1179.4500 & 5453.7000 & NaN & NaN \\
+quantile_p90 & quantile & 0.9000 & False & 4191.7600 & 3479.2900 & -0.7856 & -2851.9400 & 5058.6100 & -2246.6700 & 1575.1200 & 0.8960 & 598.8700 \\
+quantile_p95 & quantile & 0.9500 & False & 5826.9600 & 5046.1600 & -2.4505 & -4697.8700 & 4479.4900 & -5830.3100 & -2578.2000 & 0.9467 & 409.0400 \\
+quantile_p99 & quantile & 0.9900 & False & 10760.6900 & 9825.0100 & -10.7674 & -9735.3000 & 7177.6100 & -14206.8200 & -12104.6900 & 0.9892 & 142.2100 \\
+\bottomrule
+\end{tabular}
+\end{table}

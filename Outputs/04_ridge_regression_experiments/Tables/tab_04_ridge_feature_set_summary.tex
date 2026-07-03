@@ -1,0 +1,17 @@
+\begin{table}
+\caption{Feature-set design for the Ridge Regression experiments.}
+\label{tab:04-ridge-feature-set-summary}
+\begin{tabular}{lrlrr}
+\toprule
+Experiment & Features before encoding & Feature mode & Uses smearing correction & Uses tail weights \\
+\midrule
+baseline_grouped & 47 & grouped & False & False \\
+wider_alpha_grid & 47 & grouped & False & False \\
+raw_health_features & 47 & raw_health_features & False & False \\
+grouped_without_days_hospitalized & 46 & grouped_without_days_hospitalized & False & False \\
+grouped_with_interaction & 48 & grouped & False & False \\
+smearing_correction & 47 & grouped & True & False \\
+weighted_ridge & 47 & grouped & False & True \\
+\bottomrule
+\end{tabular}
+\end{table}

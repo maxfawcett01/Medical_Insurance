@@ -1,0 +1,16 @@
+\begin{table}
+\caption{Summary of selected models by evaluation criterion.}
+\label{tab:09-selected-model-summary}
+\begin{tabular}{lllrl}
+\toprule
+Selection area & Selected model & Metric & Metric value & Interpretation \\
+\midrule
+Average prediction - RMSE & gb_tail_weighted & RMSE & 2937.3652 & Lowest root mean squared error among the fitted mean-cost models. \\
+Average prediction - MAE & gb_regularised_grouped & MAE & 1658.5439 & Lowest mean absolute error among the fitted mean-cost models. \\
+Tail threshold estimation - p95 & gb_tail_weighted & p95 underprediction & 1179.4472 & Closest predicted p95 threshold to the observed p95 threshold. \\
+Tail threshold estimation - p99 & ridge_tail_weighted & p99 underprediction & 2748.7397 & Closest predicted p99 threshold to the observed p99 threshold. \\
+Tail severity estimation - p99 TVaR & ridge_tail_weighted & p99 TVaR underprediction & 4808.2099 & Closest predicted p99 TVaR to the observed p99 TVaR. \\
+Quantile calibration & gb_quantile_p99 & coverage error & -0.0008 & Quantile model with empirical coverage closest to its target quantile. \\
+\bottomrule
+\end{tabular}
+\end{table}

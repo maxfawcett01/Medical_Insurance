@@ -1,0 +1,17 @@
+\begin{table}
+\caption{Summary comparison of Ridge Regression experiment specifications.}
+\label{tab:04-ridge-main-results}
+\begin{tabular}{lrrrrrr}
+\toprule
+Experiment & RMSE & MAE & R2 & Bias & p95 under-prediction (USD) & p99 under-prediction (USD) \\
+\midrule
+baseline_grouped & 2956.1500 & 1663.4500 & 0.1119 & 754.1000 & 4411.2100 & 8872.1400 \\
+wider_alpha_grid & 2956.1600 & 1663.4500 & 0.1119 & 754.1000 & 4411.2000 & 8872.1100 \\
+raw_health_features & 2952.3900 & 1664.3200 & 0.1142 & 748.2600 & 4395.6500 & 8736.8600 \\
+grouped_without_days_hospitalized & 2966.3300 & 1667.6900 & 0.1058 & 759.1300 & 4466.5100 & 9105.3800 \\
+grouped_with_interaction & 2961.0600 & 1661.2200 & 0.1090 & 756.8300 & 4439.1500 & 9434.7600 \\
+smearing_correction & 2849.4400 & 1775.1600 & 0.1749 & 9.7800 & 3008.9800 & 6804.6500 \\
+weighted_ridge & 3042.4800 & 1885.3100 & 0.0593 & -150.4800 & 1412.4000 & 2748.7400 \\
+\bottomrule
+\end{tabular}
+\end{table}

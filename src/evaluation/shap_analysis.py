@@ -7,6 +7,7 @@ from typing import Any, Optional
 import joblib
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import shap
 from matplotlib import pyplot as plt
 from shap.maskers import Independent
@@ -297,13 +298,18 @@ def run_shap_analysis(
 def plot_shap_bar(
         shap_result: ShapAnalysisResult,
         max_display: int = 25,
-        show: bool = True,
+        show: bool = False,
 ):
     shap.plots.bar(
         shap_result.shap_values,
         max_display=max_display,
         show=show,
     )
+
+    fig = plt.gcf()
+    fig.tight_layout()
+
+    return fig
 
 
 def plot_shap_beeswarm(
@@ -336,7 +342,7 @@ def plot_shap_waterfall(
         shap_result: ShapAnalysisResult,
         row_number: int = 0,
         max_display: int = 20,
-        show: bool = True,
+        show: bool = False,
 ):
     shap.plots.waterfall(
         shap_result.shap_values[row_number],
@@ -344,14 +350,16 @@ def plot_shap_waterfall(
         show=show,
     )
 
+    fig = plt.gcf()
+    fig.tight_layout()
+
+    return fig
+
 
 def plot_shap_importance_dataframe(
         shap_result: ShapAnalysisResult,
         max_display: int = 25,
 ):
-    import matplotlib.pyplot as plt
-    import seaborn as sns
-
     plot_data = (
         shap_result.importance_df
         .head(max_display)

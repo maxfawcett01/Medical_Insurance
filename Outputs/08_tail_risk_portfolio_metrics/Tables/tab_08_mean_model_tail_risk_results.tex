@@ -1,0 +1,15 @@
+\begin{table}
+\caption{Tail-risk performance of mean-cost models on the held-out test set.}
+\label{tab:08-mean-model-tail-risk-results}
+\begin{tabular}{llrrrrrrrrrrrrrrrrr}
+\toprule
+Model & Model family & Tail weighted & RMSE & MAE & R2 & Bias & SDEP & Pearson correlation & Top 10% MAE & Top 5% MAE & Top 1% MAE & p90 under-prediction (USD) & p95 under-prediction (USD) & p99 under-prediction (USD) & p95 TVaR under-prediction (USD) & p99 TVaR under-prediction (USD) & p95 tail concentration error & p99 tail concentration error \\
+\midrule
+ridge_baseline_grouped & ridge & False & 2956.1487 & 1663.4470 & 0.1119 & 754.0958 & 2858.4197 & 0.4195 & 6919.0990 & 9432.3320 & 17030.9310 & 2777.0308 & 4411.2140 & 8872.1441 & 7504.3515 & 13576.5794 & 0.0939 & 0.0365 \\
+ridge_tail_weighted & ridge & True & 3042.4785 & 1885.3089 & 0.0593 & -150.4843 & 3038.8306 & 0.4095 & 5628.4030 & 7659.4251 & 13955.5319 & 689.0763 & 1412.3991 & 2748.7397 & 2538.1826 & 4808.2099 & 0.0501 & 0.0184 \\
+gb_baseline_grouped & gradient_boosting & False & 2970.5019 & 1659.4716 & 0.1033 & 765.9035 & 2870.1368 & 0.4193 & 7013.8038 & 9603.5049 & 17383.5550 & 2717.6509 & 4475.3400 & 9947.2362 & 8123.9776 & 15369.9653 & 0.1070 & 0.0442 \\
+gb_regularised_grouped & gradient_boosting & False & 2968.2352 & 1658.5439 & 0.1046 & 765.8570 & 2867.8031 & 0.4213 & 7007.8571 & 9593.8624 & 17352.0542 & 2713.2922 & 4530.4687 & 9914.5834 & 8135.6971 & 15229.1307 & 0.1072 & 0.0436 \\
+gb_tail_weighted & gradient_boosting & True & 2937.3652 & 1861.5766 & 0.1232 & -113.7816 & 2935.2340 & 0.4156 & 5453.1829 & 7576.1149 & 14745.7051 & 360.5102 & 1179.4472 & 5453.7029 & 4063.2466 & 10124.8964 & 0.0724 & 0.0348 \\
+\bottomrule
+\end{tabular}
+\end{table}

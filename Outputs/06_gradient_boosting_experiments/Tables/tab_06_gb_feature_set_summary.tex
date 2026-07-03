@@ -1,0 +1,21 @@
+\begin{table}
+\caption{Feature-set and model design for the Gradient Boosting experiments.}
+\label{tab:06-gb-feature-set-summary}
+\begin{tabular}{lrllrrrrrr}
+\toprule
+Experiment & Features before encoding & Feature mode & Loss & Quantile alpha & Uses tail weights & Number of estimators & Learning rate & Maximum depth & Subsample \\
+\midrule
+baseline_grouped & 47 & grouped & squared_error & NaN & False & 300 & 0.0500 & 3 & 1.0000 \\
+regularised_grouped & 47 & grouped & squared_error & NaN & False & 500 & 0.0300 & 2 & 0.8000 \\
+raw_health_features & 47 & raw_health_features & squared_error & NaN & False & 300 & 0.0500 & 3 & 1.0000 \\
+grouped_without_days_hospitalized & 46 & grouped_without_days_hospitalized & squared_error & NaN & False & 300 & 0.0500 & 3 & 1.0000 \\
+grouped_with_interaction & 48 & grouped & squared_error & NaN & False & 300 & 0.0500 & 3 & 1.0000 \\
+absolute_error_robust & 47 & grouped & absolute_error & NaN & False & 300 & 0.0500 & 3 & 1.0000 \\
+huber_robust & 47 & grouped & huber & 0.9000 & False & 300 & 0.0500 & 3 & 1.0000 \\
+tail_weighted_squared_error & 47 & grouped & squared_error & NaN & True & 300 & 0.0500 & 3 & 1.0000 \\
+quantile_p90 & 47 & grouped & quantile & 0.9000 & False & 300 & 0.0500 & 3 & 1.0000 \\
+quantile_p95 & 47 & grouped & quantile & 0.9500 & False & 300 & 0.0500 & 3 & 1.0000 \\
+quantile_p99 & 47 & grouped & quantile & 0.9900 & False & 300 & 0.0500 & 3 & 1.0000 \\
+\bottomrule
+\end{tabular}
+\end{table}
